@@ -9,11 +9,11 @@ function Header() {
           <div class="navbar-nav ml-auto">
             <ul class="nav">
               <li class="nav-item">
-                <a class="nav-link" href="#">Hi Guest</a>
+                Hi Guest
               </li>
-              {/* <li class="nav-item">
-                <a class="nav-link" href="#">{user? <Link to="/login" style={{fontSize:'12px'}}>Logout</Link> : ''}</a>
-              </li> */}
+              <li class="nav-item">
+                <a class="nav-link" href="#"><Link to="/sign-in" style={{fontSize:'12px'}}>Logout</Link></a>
+              </li>
             </ul>
           </div>
         </nav>
