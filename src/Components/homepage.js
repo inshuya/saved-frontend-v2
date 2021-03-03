@@ -3,6 +3,7 @@ import NavigationBar from './NavigationBar';
 //import './HomePage.css'
 import {BrowserRouter as Router,Switch, Route} from 'react-router-dom';
 import Transactions from './Transactions';
+import Expense from './Expense';
 
 
 function HomePage() {
@@ -21,7 +22,7 @@ function HomePage() {
               <Route path='/goals' component={Goals}/>
               <Route path='/savings' component={Savings}/> */}
               <Route path='/transactions' render={(props) => <Transactions userid={1}/>}/>
-              {/* <Route path='/expense' render={(props) => <Expense userid={1}/>}/> */}
+              <Route path='/expense' render={(props) => <Expense userid={1}/>}/>
             </Switch>
             </div>
             </Router>
