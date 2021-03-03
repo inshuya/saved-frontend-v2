@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class SignUp extends Component {
     render() {
@@ -29,7 +30,7 @@ export default class SignUp extends Component {
 
                     <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
                     <p className="forgot-password text-right">
-                        Already registered <a href="#">log in?</a>
+                        Already registered <Link to="/sign-in">log in!</Link>
                     </p>
                 </form>
             </div>
