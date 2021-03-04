@@ -71,7 +71,7 @@ async componentDidMount() {
   const category_data = await response_category.json();
 
   let category_data_formatted = this.format_category(category_data);
-
+  
   this.setState({limit:balance_data[0].limitt,used:balance_data[0].used,category:category_data_formatted});
 }
 
