@@ -36,7 +36,7 @@
     text-decoration: none;
     color:black;
     font-size: 18px;
-    width: 95%;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@
 }
 
 .nav-text a:hover {
-    background-color: #A4D279 ;
+    background-color: #d9ecc5;
 }
 
 .nav-menu-items {
@@ -55,4 +55,8 @@
 
 span{
     margin-left: 16px;
+}
+
+.activeNav {
+    background-color: #d9ecc5;
 }
