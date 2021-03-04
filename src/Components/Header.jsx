@@ -23,7 +23,7 @@ function Header() {
           </div>
           <div class="navbar-nav ml-auto">
             <ul class="nav">
-              <li class="nav-item">
+              <li class="nav-item username">
               <a class="nav-link username" href="#">Hi Guest!</a>
               </li>
               <span style={{display:'inline-block', width:20}}></span>
