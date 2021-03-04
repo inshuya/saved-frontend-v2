@@ -103,25 +103,29 @@ render()
   return(
       <>
       <Form>
-          <Form.Control style={{width:'30%', border: 'none'}} size="lg" type="month" name="month" width="w-25" defaultValue={this.state.month} onChange={this.setMonth.bind(this)}/>
+          <Form.Control style={{width:'20%', border: 'none'}} size="lg" type="month" name="month" width="w-25" defaultValue={this.state.month} onChange={this.setMonth.bind(this)}/>
       </Form>
       <div class="container">
         <div class="row">
-          <div class="col">
+          <div class="col-4"></div>
+
+          <div class="col-4">
         
-          <div style={{ height: '230px', width: '230px' , alignItems: 'center'}}>
-            <ChartDonutUtilization
-            ariaDesc="Used"
-            ariaTitle="Used"
-            constrainToVisibleArea={true}
-            data={{ x: '$', y: Math.round(this.state.used/this.state.limit * 100,0), color:"red" }}
-            labels={({ datum }) => datum.x ? `${datum.y}% used` : null}
-            subTitle={'$' + Math.floor(this.state.limit - this.state.used) + ' left'}
-            title={'$ '+Math.ceil(this.state.used).toString()}
-            themeColor={ChartThemeColor.red}
-            />
+            <div class="d-flex justify-content-center" style={{ height: '230px', width: '230px', flexDirection: 'column'}}>
+              <ChartDonutUtilization
+              ariaDesc="Used"
+              ariaTitle="Used"
+              constrainToVisibleArea={true}
+              data={{ x: '$', y: Math.round(this.state.used/this.state.limit * 100,0), color:"red" }}
+              labels={({ datum }) => datum.x ? `${datum.y}% used` : null}
+              subTitle={'$' + Math.floor(this.state.limit - this.state.used) + ' left'}
+              title={'$ '+Math.ceil(this.state.used).toString()}
+              themeColor={ChartThemeColor.red}
+              innerRadius="70"
+              />
+            </div>
           </div>
-        </div>
+          <div class="col-4"></div>
       </div>
       {this.state.category}
   </div>
