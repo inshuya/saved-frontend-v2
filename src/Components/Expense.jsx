@@ -15,7 +15,8 @@ export default class Expense extends React.Component{
        limit: 0,
        used:0,
         month:yyyy+'-'+mm,
-        category:[]
+        category:[],
+        isdata:true
   }
 }
 
@@ -70,8 +71,16 @@ async componentDidMount() {
   const response_category= await fetch(url_category);
   const category_data = await response_category.json();
 
+  if(category_data.message === "Not found !" || balance_data.message === "Not found !")
+        {
+          this.setState({isdata:false});
+        }
+        else {
+          this.setState({isdata:true});
+        }
+
   let category_data_formatted = this.format_category(category_data);
-  
+
   this.setState({limit:balance_data[0].limitt,used:balance_data[0].used,category:category_data_formatted});
 }
 
@@ -88,6 +97,13 @@ async componentDidUpdate(prevProps, prevState) {
         const response_category= await fetch(url_category);
         const category_data = await response_category.json();
 
+        if(category_data.message === "Not found !" || balance_data.message === "Not found !")
+        {
+          this.setState({isdata:false});
+        }
+        else {
+          this.setState({isdata:true});
+        }
         let category_data_formatted = this.format_category(category_data);
         this.setState({limit:balance_data[0].limitt,used:balance_data[0].used, category:category_data_formatted});
 }
@@ -99,7 +115,7 @@ setMonth(event) {
 
 render()
 {
-
+  if(this.state.isdata){
   return(
       <>
       <Form>
@@ -131,5 +147,19 @@ render()
   </div>
       </>
       );
+}
+else
+{
+ return(
+  <>
+  <Form>
+      <Form.Control style={{width:'20%', border: 'none'}} size="lg" type="month" name="month" width="w-25" defaultValue={this.state.month} onChange={this.setMonth.bind(this)}/>
+  </Form>
+ <div style={{color:'#ff7d4d'}}>
+        <br/>
+        <h3>We were unable to find any data for {this.state.month}, but you might try other months!</h3>
+    </div>
+    </>);
+}
 }
 };
