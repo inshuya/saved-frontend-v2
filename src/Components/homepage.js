@@ -8,31 +8,31 @@ import Accounts from './Accounts'
 import Goals from './Goals';
 import Savings from './Savings'
 
-function HomePage() {
-    return (
-        <>
-        <div class="container" style={{marginLeft:'0px', paddingLeft:'0px', marginRight:'0px', paddingRight:'0px',maxWidth:'100%'}}>
-          <div class="row">
-            <Router>
-            <div class="col-3">
-            <NavigationBar />
-            </div>
-            <div class="col-9" >
-            <Switch>
-              <Route path='/' exact render={(props) => <Expense userid={1}/>}/>  
-              <Route path='/accounts' component={Accounts}/>
-              <Route path='/goals' component={Goals}/>
-              <Route path='/savings' component={Savings}/>
-              <Route path='/transactions' render={(props) => <Transactions userid={1}/>}/>
-              <Route path='/expense' render={(props) => <Expense userid={1}/>}/>
-            </Switch>
-            </div>
-            </Router>
-          </div>
+class HomePage extends React.Component
+{
+
+render() {
+  return (
+    <>
+    <div class="container" style={{marginLeft:'0px', paddingLeft:'0px', marginRight:'0px', paddingRight:'0px',maxWidth:'100%'}}>
+      <div class="row">
+        <div class="col-3">
+        <NavigationBar />
         </div>
-        
-        </>
-    );
+        <div class="col-9" >
+          <Route path={this.props.match.path} exact render={(props) => <Expense userid={1}/>}/>  
+          <Route path={`${this.props.match.path}/accounts`} component={Accounts}/>
+          <Route path={`${this.props.match.path}/goals`} component={Goals}/>
+          <Route path={`${this.props.match.path}/savings`} component={Savings}/>
+          <Route path={`${this.props.match.path}/transactions`} render={(props) => <Transactions userid={1}/>}/>
+          <Route path={`${this.props.match.path}/expense`} render={(props) => <Expense userid={1}/>}/>
+        </div>
+      </div>
+    </div>
+    
+    </>
+);
+}
 }
 
 export { HomePage };

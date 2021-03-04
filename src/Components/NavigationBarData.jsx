@@ -5,31 +5,31 @@ import * as BiIcons from "react-icons/bi";
 export const NavbarData = [
     {
         title: 'Accounts',
-        path: '/accounts',
+        path: '/home/accounts',
         icon: <GiIcons.GiBank />,
         cName: 'nav-text'
     },
     {
         title: 'Budget',
-        path: '/goals',
+        path: '/home/goals',
         icon: <GiIcons.GiStairsGoal />,
         cName: 'nav-text'
     },
     {
         title: 'Bills and Income',
-        path: '/transactions',
+        path: '/home/transactions',
         icon: <GiIcons.GiTakeMyMoney />,
         cName: 'nav-text'
     },
     {
         title: 'Monthly Expense Report',
-        path: '/expense',
+        path: '/home/expense',
         icon: <GiIcons.GiExpense />,
         cName: 'nav-text'
     },
     {
         title: 'Expense Stats',
-        path: '/savings',
+        path: '/home/savings',
         icon: <BiIcons.BiStats />,
         cName: 'nav-text'
     }
