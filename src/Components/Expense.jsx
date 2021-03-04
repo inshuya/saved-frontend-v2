@@ -46,7 +46,7 @@ let result = [];
       {
         label_left = `$${Math.abs(rem)} over budget !!`
       }
-      result.push(<p><span>{arr[i].category_name}</span><span style={{float:'right'}}> {label_left}</span>
+      result.push(<p><span style={{textAlign:'left'}} >{arr[i].category_name}</span><span style={{float:'right'}}> {label_left}</span>
                 <ProgressBar style={{color:'black'}} now={now} variant={v} label={`$${spent} of $${limit}`} />
                 </p>
       );
@@ -80,16 +80,16 @@ async componentDidUpdate(prevProps, prevState) {
     {
         let sql_month = this.state.month + '-01';
 
-  const url_balance = `${config.apiUrl}/expense/${this.props.userid}/${sql_month}`;
-  const response_balance= await fetch(url_balance);
-  const balance_data = await response_balance.json();
+        const url_balance = `${config.apiUrl}/expense/${this.props.userid}/${sql_month}`;
+        const response_balance= await fetch(url_balance);
+        const balance_data = await response_balance.json();
 
-  const url_category = `${config.apiUrl}/expense/category/${this.props.userid}/${sql_month}`;
-  const response_category= await fetch(url_category);
-  const category_data = await response_category.json();
+        const url_category = `${config.apiUrl}/expense/category/${this.props.userid}/${sql_month}`;
+        const response_category= await fetch(url_category);
+        const category_data = await response_category.json();
 
-  let category_data_formatted = this.format_category(category_data);
-  this.setState({limit:balance_data[0].limitt,used:balance_data[0].used, category:category_data_formatted});
+        let category_data_formatted = this.format_category(category_data);
+        this.setState({limit:balance_data[0].limitt,used:balance_data[0].used, category:category_data_formatted});
 }
 }
 
@@ -106,22 +106,22 @@ render()
           <Form.Control style={{width:'30%', border: 'none'}} size="lg" type="month" name="month" width="w-25" defaultValue={this.state.month} onChange={this.setMonth.bind(this)}/>
       </Form>
       <div class="container">
-      <div class="row">
-        <div class="col">
-      
-      <div style={{ height: '230px', width: '230px' , alignItems: 'center'}}>
-      <ChartDonutUtilization
-      ariaDesc="Used"
-      ariaTitle="Used"
-      constrainToVisibleArea={true}
-      data={{ x: '$', y: Math.round(this.state.used/this.state.limit * 100,0), color:"red" }}
-      labels={({ datum }) => datum.x ? `${datum.y}% used` : null}
-      subTitle={'$' + Math.floor(this.state.limit - this.state.used) + ' left'}
-      title={'$ '+Math.ceil(this.state.used).toString()}
-      themeColor={ChartThemeColor.red}
-    />
-      </div>
-      </div>
+        <div class="row">
+          <div class="col">
+        
+          <div style={{ height: '230px', width: '230px' , alignItems: 'center'}}>
+            <ChartDonutUtilization
+            ariaDesc="Used"
+            ariaTitle="Used"
+            constrainToVisibleArea={true}
+            data={{ x: '$', y: Math.round(this.state.used/this.state.limit * 100,0), color:"red" }}
+            labels={({ datum }) => datum.x ? `${datum.y}% used` : null}
+            subTitle={'$' + Math.floor(this.state.limit - this.state.used) + ' left'}
+            title={'$ '+Math.ceil(this.state.used).toString()}
+            themeColor={ChartThemeColor.red}
+            />
+          </div>
+        </div>
       </div>
       {this.state.category}
   </div>
