@@ -16,10 +16,10 @@ render() {
     <>
     <div class="container" style={{marginLeft:'0px', paddingLeft:'0px', marginRight:'0px', paddingRight:'0px',maxWidth:'100%'}}>
       <div class="row">
-        <div class="col-3">
+        <div class="col-2">
         <NavigationBar />
         </div>
-        <div class="col-9" >
+        <div class="col-10" >
           <Route path={this.props.match.path} exact render={(props) => <Expense userid={1}/>}/>  
           <Route path={`${this.props.match.path}/accounts`} component={Accounts}/>
           <Route path={`${this.props.match.path}/goals`} component={Goals}/>
