@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from './Components/login';
 import SignUp from './Components/signup';
 import { HomePage } from './Components/homepage';
@@ -12,7 +12,6 @@ function App() {
     <Router>
       <div className="App">
         <Header/>
-
         <div className="outer">
           <div className="inner">
             <Switch>
@@ -23,6 +22,7 @@ function App() {
             </Switch>
           </div>
         </div>
+        
       </div>
     </Router>
   );

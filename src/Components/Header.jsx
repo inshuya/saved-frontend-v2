@@ -1,18 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css'
+import logo from '../logo.png'
+import { Table } from 'react-bootstrap';
 
 function Header() {
     return(
         <nav class="navbar navbar-light header">
-          <div class="navbar-brand mr-auto">SavED</div>
+          <div class="navbar-brand mr-auto saved">
+            <Table className="table-borderless" style={{padding:0}}>
+                <tbody>
+                  <tr>
+                    <td style={{padding:0}}>
+                      <img src={logo} class="logo"/>
+                    </td>
+                    <td style={{padding:0}}>
+                      SavED
+                    </td>
+                  </tr>
+                </tbody>
+            </Table>
+          </div>
           <div class="navbar-nav ml-auto">
             <ul class="nav">
               <li class="nav-item">
-                Hi Guest
+              <a class="nav-link username" href="#">Hi Guest!</a>
               </li>
+              <span style={{display:'inline-block', width:20}}></span>
               <li class="nav-item">
-                <a class="nav-link" href="#"><Link to="/sign-in" style={{fontSize:'12px'}}>Logout</Link></a>
+                <a class="nav-link logout" href="#"><Link to="/sign-in">Logout</Link></a>
               </li>
             </ul>
           </div>
