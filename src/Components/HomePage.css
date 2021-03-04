@@ -9,7 +9,7 @@
   }
 
   .header {
-    background:#A4D279;
+    background:#d9ecc5;
     color: black;
   }
 
@@ -21,4 +21,27 @@
 
   .header-right {
     font-size: 4vh;
+  }
+
+  .saved {
+    font-size: xx-large;
+    font-weight: bolder;
+  }
+
+  .username {
+    font-size: large;
+    font-weight: bold;
+  }
+
+  .logout {
+    font-size: large;
+    font-weight: 900;
+  }
+
+  .logo{
+
+      max-width: 50px;
+      max-height: 50px;
+      display: block;
+
   }

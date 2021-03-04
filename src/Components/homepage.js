@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import NavigationBar from './NavigationBar';
-//import './HomePage.css'
+import './HomePage.css'
 import {BrowserRouter as Router,Switch, Route} from 'react-router-dom';
 import Transactions from './Transactions';
 import Expense from './Expense';
-
+import Accounts from './Accounts'
+import Goals from './Goals';
+import Savings from './Savings'
 
 function HomePage() {
     return (
@@ -17,10 +19,10 @@ function HomePage() {
             </div>
             <div class="col-9" >
             <Switch>
-              {/* <Route path='/' exact component={Goals}/>  
+              <Route path='/' exact render={(props) => <Expense userid={1}/>}/>  
               <Route path='/accounts' component={Accounts}/>
               <Route path='/goals' component={Goals}/>
-              <Route path='/savings' component={Savings}/> */}
+              <Route path='/savings' component={Savings}/>
               <Route path='/transactions' render={(props) => <Transactions userid={1}/>}/>
               <Route path='/expense' render={(props) => <Expense userid={1}/>}/>
             </Switch>
