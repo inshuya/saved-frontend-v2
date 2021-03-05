@@ -6,11 +6,15 @@ import Login from './Components/login';
 import SignUp from './Components/signup';
 import { HomePage } from './Components/homepage';
 import Header from './Components/Header';
+import { Container } from 'react-bootstrap';
+import InitAuth from './InitAuth';
 
 function App() {
+  InitAuth.auth=false;
   return (
     <Router>
-      <div className="App">
+
+      <Container style={{maxWidth:'100%',marginRight:0,marginLeft:0,paddingLeft:0,paddingRight:0}}>
         <Header/>
         <div className="outer">
           <div className="inner">
@@ -23,7 +27,7 @@ function App() {
           </div>
         </div>
         
-      </div>
+      </Container>
     </Router>
   );
 }

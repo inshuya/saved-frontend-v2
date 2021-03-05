@@ -28,7 +28,7 @@ export default class Login extends Component {
                             <Form.Control type="password" placeholder="Password" />
                         </Form.Group>
                         <br/>
-                        <Link to="/home">
+                        <Link to="/home" style={{textDecoration:'none'}}>
                                                     
                         <Button variant="btn btn-dark btn-lg btn-block" type="submit">
                             Sign In

@@ -71,7 +71,7 @@ async componentDidMount() {
   const response_category= await fetch(url_category);
   const category_data = await response_category.json();
 
-  if(category_data.message === "Not found !" || balance_data.message === "Not found !")
+  if(category_data.message === "Not found !" || balance_data.message === "Not found !" || !balance_data[0].limitt)
         {
           this.setState({isdata:false});
         }
@@ -97,7 +97,7 @@ async componentDidUpdate(prevProps, prevState) {
         const response_category= await fetch(url_category);
         const category_data = await response_category.json();
 
-        if(category_data.message === "Not found !" || balance_data.message === "Not found !")
+        if(category_data.message === "Not found !" || balance_data.message === "Not found !" || !balance_data[0].limitt)
         {
           this.setState({isdata:false});
         }
@@ -119,7 +119,7 @@ render()
   return(
       <>
       <Form>
-          <Form.Control style={{width:'20%', border: 'none'}} size="lg" type="month" name="month" width="w-25" defaultValue={this.state.month} onChange={this.setMonth.bind(this)}/>
+          <Form.Control style={{width:'30%', border: 'none'}} size="lg" type="month" name="month" width="w-25" defaultValue={this.state.month} onChange={this.setMonth.bind(this)}/>
       </Form>
       <div class="container">
         <div class="row">
@@ -153,7 +153,7 @@ else
  return(
   <>
   <Form>
-      <Form.Control style={{width:'20%', border: 'none'}} size="lg" type="month" name="month" width="w-25" defaultValue={this.state.month} onChange={this.setMonth.bind(this)}/>
+      <Form.Control style={{width:'30%', border: 'none'}} size="lg" type="month" name="month" width="w-25" defaultValue={this.state.month} onChange={this.setMonth.bind(this)}/>
   </Form>
  <div style={{color:'#ff7d4d'}}>
         <br/>

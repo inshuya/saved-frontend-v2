@@ -40,14 +40,20 @@ generate_row_html(tran_data) {
   let tran_html = [];
 
     for (var id in tran_data) {
-      let dt = new Date(tran_data[id].transaction_ts);
+      let amt_color = tran_data[id].is_expense? 'red' :'green';
+      let d = new Date(tran_data[id].transaction_ts);
+      let dformat = [(d.getMonth()+1).toString().padStart(2,'0'),
+                      d.getDate().toString().padStart(2,'0'),
+                      d.getFullYear()].join('/')+' '+
+                    [d.getHours().toString().padStart(2,'0'),
+                      d.getMinutes().toString().padStart(2,'0')].join(':');
       tran_html.push(
         <tr>
           <td>{tran_data[id].account_number}</td>
-          <td> {dt.toString()}</td>
+          <td> {dformat}</td>
           <td> {tran_data[id].transaction_name}</td>
           <td> {tran_data[id].category_name} </td>
-          <td> {'$ '+tran_data[id].amount} </td>
+          <td style={{color:amt_color}}> {tran_data[id].is_expense? '- $ '+tran_data[id].amount : '+ $ '+tran_data[id].amount} </td>
         </tr>
       );
     
@@ -165,7 +171,7 @@ setMonth(event) {
 all_trans(type) {
   return ( 
   <div> 
-    <Table striped bordered hover>
+    <Table striped bordered hover style={{paddingRight:'10px'}}>
       <thead>
         <tr>
         <th>Account Number</th>
@@ -186,7 +192,7 @@ render()
   return(
       <>
         <Form>
-          <Form.Control style={{width:'20%', border: 'none'}} size="lg" type="month" name="month" width="w-25" defaultValue={this.state.month} onChange={this.setMonth.bind(this)}/>
+          <Form.Control style={{width:'30%', border: 'none'}} size="lg" type="month" name="month" width="w-25" defaultValue={this.state.month} onChange={this.setMonth.bind(this)}/>
         </Form>
         <Tabs defaultActiveKey="all" id="uncontrolled-tab-example">
           <Tab eventKey="all" title="All">
