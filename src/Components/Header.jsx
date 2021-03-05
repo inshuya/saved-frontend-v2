@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './HomePage.css'
 import logo from '../logo.png'
 import { Table } from 'react-bootstrap';
+import InitAuth from '../InitAuth';
 
 function Header() {
     return(
@@ -28,7 +29,7 @@ function Header() {
               </li>
               <span style={{display:'inline-block', width:20}}></span>
               <li class="nav-item">
-                <a class="nav-link logout" href="#"><Link to="/sign-in">Logout</Link></a>
+                {InitAuth.auth && <a class="nav-link logout" href="#"><Link to="/sign-in">Logout</Link></a>}
               </li>
             </ul>
           </div>

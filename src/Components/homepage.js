@@ -7,11 +7,13 @@ import Expense from './Expense';
 import Accounts from './Accounts'
 import Goals from './Goals';
 import Savings from './Savings'
+import InitAuth from '../InitAuth';
 
 class HomePage extends React.Component
 {
 
 render() {
+  InitAuth.auth = true;
   return (
     <>
     <div class="container" style={{marginLeft:'0px', paddingLeft:'0px', marginRight:'0px', paddingRight:'0px',maxWidth:'100%'}}>
@@ -19,7 +21,7 @@ render() {
         <div class="col-2">
         <NavigationBar />
         </div>
-        <div class="col-10" >
+        <div class="col-10" style={{paddingLeft:0}}>
           <Route path={this.props.match.path} exact render={(props) => <Expense userid={1}/>}/>  
           <Route path={`${this.props.match.path}/accounts`} component={Accounts}/>
           <Route path={`${this.props.match.path}/goals`} component={Goals}/>

@@ -22,7 +22,7 @@ export const NavbarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Monthly Expense Report',
+        title: 'Spending Tracker',
         path: '/home/expense',
         icon: <GiIcons.GiExpense />,
         cName: 'nav-text'
@@ -31,6 +31,12 @@ export const NavbarData = [
         title: 'Expense Stats',
         path: '/home/savings',
         icon: <BiIcons.BiStats />,
+        cName: 'nav-text'
+    },
+    {
+        title: 'Logout',
+        path: '/sign-in',
+        icon: <BiIcons.BiLogOut />,
         cName: 'nav-text'
     }
 ]
